@@ -59,7 +59,7 @@ public  class Conexion {
 
 
         }catch (SQLException e){
-            System.out.println("Error en la ejecución" + e);
+            System.out.println("Error en la ejecucion " + e);
             return 0;
         }
 
