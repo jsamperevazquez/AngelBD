@@ -1,6 +1,12 @@
 package com.angel.bd.entidades.vehiculos.gui;
 
+import com.angel.bd.acceso.Conexion;
+import com.angel.bd.negocio.ClienteBL;
+import com.angel.bd.negocio.VehiculoBL;
+
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 /**
  * Creado por @autor: angel
@@ -12,8 +18,8 @@ public class Vehiculo extends JFrame {
     private JTextField fieldId;
     private JLabel id_vehiculo;
     private JTextField fieldMarca;
-    private JTextField textField2;
-    private JTextField textField3;
+    private JTextField fieldModelo;
+    private JTextField fieldFecha;
     private JButton registrarVehiculoButton;
 
     public Vehiculo() {
@@ -21,7 +27,29 @@ public class Vehiculo extends JFrame {
         frame.setContentPane(panel);
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.setLocationRelativeTo(null);
-        frame.setSize(800,600);
+        frame.setSize(800, 600);
         frame.setVisible(true);
+        registrarVehiculoButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                Conexion.conectar();
+                VehiculoBL vehiculoBL = recuperarDatosForm();
+
+                String strSentenciaInsert = String.format("insert into Vehiculo(marca,modelo,fecha_entrada) " +
+                        "VALUES ('%s','%s','%s')", vehiculoBL.getMarca(), vehiculoBL.getModelo(), vehiculoBL.getFechaEntrada());
+                Conexion.ejecutarSentenciaSQL(strSentenciaInsert);
+            }
+        });
+    }
+
+    public VehiculoBL recuperarDatosForm() {
+        Conexion.conectar();
+        VehiculoBL objetoVehiculo = new VehiculoBL();
+        Integer id = (fieldId.getText().isEmpty()) ? 0 : Integer.parseInt(fieldId.getText());
+        objetoVehiculo.setIdVehiculo(id);
+        objetoVehiculo.setMarca(fieldMarca.getText());
+        objetoVehiculo.setModelo(fieldModelo.getText());
+        objetoVehiculo.setFechaEntrada(fieldFecha.getText());
+        return objetoVehiculo;
     }
 }
