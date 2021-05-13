@@ -38,7 +38,7 @@ public class Clientes extends JFrame {
         JFrame frame = new JFrame("Clientes");
          frame.setContentPane(panel);
          frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-         frame.setSize(800,300);
+         frame.setSize(900,900);
          frame.setVisible(true);
          frame.setLocationRelativeTo(null);
         mostrarDatos();
