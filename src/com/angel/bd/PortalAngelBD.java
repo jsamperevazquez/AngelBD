@@ -1,6 +1,8 @@
 package com.angel.bd;
 
 import com.angel.bd.entidades.Clientes.gui.Clientes;
+import com.angel.bd.entidades.vehiculos.gui.Vehiculo;
+import com.angel.bd.entidades.venta.gui.Venta;
 
 import javax.swing.*;
 import java.awt.*;
@@ -26,6 +28,20 @@ public class PortalAngelBD {
             public void actionPerformed(ActionEvent actionEvent) {
                 Clientes cliente = new Clientes();
                 cliente.setVisible(true);
+            }
+        });
+        button2.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                Vehiculo vehiculo = new Vehiculo();
+                vehiculo.setVisible(true);
+            }
+        });
+        button3.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                Venta venta=new Venta();
+                venta.setVisible(true);
             }
         });
     }
