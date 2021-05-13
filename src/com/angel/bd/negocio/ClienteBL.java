@@ -6,7 +6,7 @@ package com.angel.bd.negocio;
  * //-encoding utf8 -docencoding utf8 -charset utf8(Para el javadoc)
  **/
 public class ClienteBL {
-    int id_cliente;
+    Integer id_cliente;
     String nombre,apellido,email,telefono;
 
     public int getId_cliente() {

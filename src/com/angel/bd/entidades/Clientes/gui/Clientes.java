@@ -147,7 +147,7 @@ public class Clientes extends JFrame {
     public ClienteBL recuperarDatosForm() {
         Conexion.conectar();
         ClienteBL objetoCliente = new ClienteBL();
-        int id = (idCliente.getText().isEmpty()) ? 0 : Integer.parseInt(idCliente.getText());
+        Integer id = (idCliente.getText().isEmpty()) ? 0 : Integer.parseInt(idCliente.getText());
         objetoCliente.setId_cliente(id);
         objetoCliente.setNombre(nombreCliente.getText());
         objetoCliente.setApellido(apellidoCliente.getText());
