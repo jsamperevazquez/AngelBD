@@ -35,6 +35,12 @@ public class Clientes extends JFrame {
     private static String[] titulosColumnas = {"Id", "Nombre", "Apellido", "Email", "Telefono"};
 
     public Clientes() {
+        JFrame frame = new JFrame("Clientes");
+         frame.setContentPane(panel);
+         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+         frame.setSize(800,300);
+         frame.setVisible(true);
+         frame.setLocationRelativeTo(null);
         mostrarDatos();
         consultarCliente.addActionListener(new ActionListener() {
             @Override
@@ -107,6 +113,11 @@ public class Clientes extends JFrame {
                 String strSentenciaInsert = String.format("UPDATE  Clientes SET nombre_cliente='%s', " +
                         "apellido_cliente='%s'," + "email_cliente='%s'," + "telefono_cliente='%s' WHERE id_clientes=%d", clienteBL.getNombre(), clienteBL.getApellido(), clienteBL.getEmail(), clienteBL.getTelefono(), clienteBL.getId_cliente());
                 Conexion.ejecutarSentenciaSQL(strSentenciaInsert);
+                idCliente.setText("");
+                nombreCliente.setText("");
+                apellidoCliente.setText("");
+                emailCliente.setText("");
+                telefonoCliente.setText("");
                 mostrarDatos();
             }
         });
@@ -146,8 +157,8 @@ public class Clientes extends JFrame {
 
         return objetoCliente;
     }
-
-
+// main sin uso por escalabilidad del proyecto
+/*
     public static void main(String[] args) {
         JFrame frame = new JFrame("Clientes");
         frame.setContentPane(new Clientes().panel);
@@ -157,7 +168,7 @@ public class Clientes extends JFrame {
         frame.setLocationRelativeTo(null);
 
     }
-
+*/
     private void createUIComponents() {
         JScrollPane scrollPane = new JScrollPane();
         tableClientes = new JTable();
