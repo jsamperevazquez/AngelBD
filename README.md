@@ -1,7 +1,7 @@
 # Conexión a Base de Datos con JDBC
 ## Motor de BD utilizada [**SQLite**](https://www.sqlite.org/index.html)
 
-![JAVA-->JDBC](https://www.google.es/url?sa=i&url=https%3A%2F%2Fprofessor-falken.com%2Fprogramacion%2Fjava%2Fcomo-conectar-java-a-una-base-de-datos-sqlite%2F&psig=AOvVaw33HymCfZdSsp6lWkXH2vM7&ust=1621127923502000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCPjV-6LCyvACFQAAAAAdAAAAABAD)
+![JAVA-->JDBC](https://raw.githubusercontent.com/jsamperevazquez/AngelBD/master/src/com/angel/bd/imagenes/jdbc.jpg)
 
 
 ### Estructura del proyecto
