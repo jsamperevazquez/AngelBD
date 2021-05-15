@@ -32,18 +32,20 @@ public class Vehiculo extends JFrame {
         registrarVehiculoButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                Conexion.conectar();
                 VehiculoBL vehiculoBL = recuperarDatosForm();
 
                 String strSentenciaInsert = String.format("insert into Vehiculo(marca,modelo,fecha_entrada) " +
                         "VALUES ('%s','%s','%s')", vehiculoBL.getMarca(), vehiculoBL.getModelo(), vehiculoBL.getFechaEntrada());
                 Conexion.ejecutarSentenciaSQL(strSentenciaInsert);
+
+                fieldMarca.setText("");
+                fieldModelo.setText("");
+                fieldFecha.setText("");
             }
         });
     }
 
     public VehiculoBL recuperarDatosForm() {
-        Conexion.conectar();
         VehiculoBL objetoVehiculo = new VehiculoBL();
         Integer id = (fieldId.getText().isEmpty()) ? 0 : Integer.parseInt(fieldId.getText());
         objetoVehiculo.setIdVehiculo(id);

@@ -3,7 +3,7 @@ package com.angel.bd.acceso;
 import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
+import com.angel.bd.PortalAngelBD;
 /**
  * Creado por @autor: angel
  * El  12 de may. de 2021.
@@ -29,25 +29,26 @@ public  class Conexion {
         Conexion.conexion = conexion;
     }
 
-    public static void conectar() {
+    public static boolean conectar() {
+        boolean aux=false;
         try {
             conexion = DriverManager.getConnection("jdbc:sqlite:" + url);
             if (conexion != null) {
-                System.out.println("Conexion establecida");
+              aux=true;
             }
         } catch (SQLException e) {
-            System.out.println("Error de conexion" + " " + e.getErrorCode());
 
         }
+        return aux;
     }
 
     public static void cerrarConexion() {
+
         try {
             conexion.close();
-
         }catch (SQLException e){
             Logger.getLogger(Conexion.class.getName()).log(Level.SEVERE, null, e);
-        }
+        }catch (NullPointerException ex){}
     }
     public static int ejecutarSentenciaSQL(String sentenciaSQL){
 

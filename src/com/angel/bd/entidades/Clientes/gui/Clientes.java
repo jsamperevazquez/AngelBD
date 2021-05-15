@@ -45,7 +45,6 @@ public class Clientes extends JFrame {
         consultarCliente.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                //Conexion.conectar();
                 Integer idPeticion = Integer.parseInt(JOptionPane.showInputDialog(null, "Introduce el ID del cliente"));
                 try {
                     ResultSet resultado = Conexion.consultarDatos("SELECT * FROM clientes where id_clientes=" + idPeticion);
@@ -63,7 +62,6 @@ public class Clientes extends JFrame {
         insertarCliButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                Conexion.conectar();
                 ClienteBL clienteBL = recuperarDatosForm();
                 String strSentenciaInsert = String.format("insert into Clientes(nombre_cliente,apellido_cliente,email_cliente,telefono_cliente) " +
                         "VALUES ('%s','%s','%s','%s')", clienteBL.getNombre(), clienteBL.getApellido(), clienteBL.getEmail(), clienteBL.getTelefono());
@@ -80,7 +78,6 @@ public class Clientes extends JFrame {
         tableClientes.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent mouseEvent) {
-                Conexion.conectar();
                 try {
                     if (mouseEvent.getClickCount() == 1) {
                         JTable receptor = (JTable) mouseEvent.getSource();
@@ -98,7 +95,6 @@ public class Clientes extends JFrame {
         eliminarCliButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                Conexion.conectar();
                 ClienteBL clienteBL = recuperarDatosForm();
                 String strSentenciaInsert = String.format("DELETE FROM Clientes WHERE id_clientes = %d ", clienteBL.getId_cliente());
                 Conexion.ejecutarSentenciaSQL(strSentenciaInsert);
@@ -108,7 +104,6 @@ public class Clientes extends JFrame {
         modificarCliButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                Conexion.conectar();
                 ClienteBL clienteBL = recuperarDatosForm();
                 String strSentenciaInsert = String.format("UPDATE  Clientes SET nombre_cliente='%s', " +
                         "apellido_cliente='%s'," + "email_cliente='%s'," + "telefono_cliente='%s' WHERE id_clientes=%d", clienteBL.getNombre(), clienteBL.getApellido(), clienteBL.getEmail(), clienteBL.getTelefono(), clienteBL.getId_cliente());
@@ -127,7 +122,6 @@ public class Clientes extends JFrame {
         while (modelo.getRowCount() > 1) {
             modelo.removeRow(1);
         }
-        Conexion.conectar();
 
         try {
             ResultSet resultado = Conexion.consultarDatos("SELECT * FROM clientes");
@@ -145,7 +139,6 @@ public class Clientes extends JFrame {
 
 
     public ClienteBL recuperarDatosForm() {
-        Conexion.conectar();
         ClienteBL objetoCliente = new ClienteBL();
         Integer id = (idCliente.getText().isEmpty()) ? 0 : Integer.parseInt(idCliente.getText());
         objetoCliente.setId_cliente(id);
@@ -157,18 +150,7 @@ public class Clientes extends JFrame {
 
         return objetoCliente;
     }
-// main sin uso por escalabilidad del proyecto
-/*
-    public static void main(String[] args) {
-        JFrame frame = new JFrame("Clientes");
-        frame.setContentPane(new Clientes().panel);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(800,300);
-        frame.setVisible(true);
-        frame.setLocationRelativeTo(null);
 
-    }
-*/
     private void createUIComponents() {
         JScrollPane scrollPane = new JScrollPane();
         tableClientes = new JTable();

@@ -1,5 +1,6 @@
 package com.angel.bd;
 
+import com.angel.bd.acceso.Conexion;
 import com.angel.bd.entidades.Clientes.gui.Clientes;
 import com.angel.bd.entidades.vehiculos.gui.Vehiculo;
 import com.angel.bd.entidades.venta.gui.Venta;
@@ -21,18 +22,32 @@ public class PortalAngelBD {
     private JButton button3;
     private JPanel panel2;
     private JLabel imagen;
+    public JTextField infoBDArea;
+    private JButton CERRARCONEXIONBDButton;
+
+
 
     public PortalAngelBD() {
         button1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
+                Conexion.conectar();
+                if (Conexion.conectar()==true){
+                    infoBDArea.setText("\t Conectado a BD");
+                }
                 Clientes cliente = new Clientes();
                 cliente.setVisible(true);
             }
         });
+
+
         button2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
+                Conexion.conectar();
+                if (Conexion.conectar()==true){
+                    infoBDArea.setText("\t Conectado a BD");
+                }
                 Vehiculo vehiculo = new Vehiculo();
                 vehiculo.setVisible(true);
             }
@@ -40,10 +55,29 @@ public class PortalAngelBD {
         button3.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
+                Conexion.conectar();
+                if (Conexion.conectar()==true){
+                    infoBDArea.setText("\t Conectado a BD");
+                }
                 Venta venta=new Venta();
                 venta.setVisible(true);
             }
         });
+        CERRARCONEXIONBDButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                Conexion.cerrarConexion();
+                infoBDArea.setText("\t Conexion cerrada");
+            }
+        });
+    }
+
+    public JTextField getInfoBDArea() {
+        return infoBDArea;
+    }
+
+    public void setInfoBDArea(JTextField infoBDArea) {
+        this.infoBDArea = infoBDArea;
     }
 
     public static void main(String[] args) {

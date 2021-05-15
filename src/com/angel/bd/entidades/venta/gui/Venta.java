@@ -32,7 +32,6 @@ public class Venta extends JFrame {
         registrarVentaButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                Conexion.conectar();
                 VentaBL ventaBL = recuperarDatosForm();
                 String strSentenciaInsert = String.format("insert into venta(fecha_venta,id_cliente,id_vehiculo) " +
                         "VALUES ('%s','%s','%s')", ventaBL.getFechaVenta(), ventaBL.getId_cliente(), ventaBL.getId_vehiculo());
@@ -42,7 +41,6 @@ public class Venta extends JFrame {
     }
 
     public VentaBL recuperarDatosForm() {
-        Conexion.conectar();
         VentaBL venta = new VentaBL();
         Integer id = (idVentaTF.getText().isEmpty()) ? 0 : Integer.parseInt(idVentaTF.getText());
         venta.setId_venta(id);
