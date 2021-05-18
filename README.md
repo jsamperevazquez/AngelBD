@@ -21,6 +21,10 @@
     - VehiculoBL
     - VentaBL
     
+### Base de Datos de Ángel
+Tenemos una base de datos relacional, compuesta por tres tablas que se relacionan entre sí de la siguiente manera:
+![Angel-->BD](https://raw.githubusercontent.com/jsamperevazquez/AngelBD/master/src/com/angel/bd/imagenes/AngelBD.png)
+
 ### SQLlite
 SQLite es un sistema de gestión de bases de datos relacional compatible con ACID, contenida en una relativamente pequeña ​ biblioteca escrita en C.
 
