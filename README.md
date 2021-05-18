@@ -25,6 +25,20 @@
 Tenemos una base de datos relacional, compuesta por tres tablas que se relacionan entre sí de la siguiente manera:
 ![Angel-->BD](https://raw.githubusercontent.com/jsamperevazquez/AngelBD/master/src/com/angel/bd/imagenes/AngelBD.png)
 
+### Interfaz del proyecto
+1. Portal
+   ![Angel-->BD](https://raw.githubusercontent.com/jsamperevazquez/AngelBD/master/src/com/angel/bd/imagenes/portal.png)
+   
+2. Clientes
+   ![Angel-->BD](https://raw.githubusercontent.com/jsamperevazquez/AngelBD/master/src/com/angel/bd/imagenes/clientes.png)
+   
+3. Vehículos
+   ![Angel-->BD](https://raw.githubusercontent.com/jsamperevazquez/AngelBD/master/src/com/angel/bd/imagenes/vehiculo.png)
+   
+4. Ventas
+   ![Angel-->BD](https://raw.githubusercontent.com/jsamperevazquez/AngelBD/master/src/com/angel/bd/imagenes/venta.png)
+
+
 ### SQLlite
 SQLite es un sistema de gestión de bases de datos relacional compatible con ACID, contenida en una relativamente pequeña ​ biblioteca escrita en C.
 
